@@ -1,0 +1,129 @@
+{
+  "info": {
+    "name": "AIS Integrated Systems - Adapter Layer Complete",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/health",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["health"]
+        }
+      }
+    },
+    {
+      "name": "DB Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/db-check",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["db-check"]
+        }
+      }
+    },
+    {
+      "name": "Register and Sync to Legacy",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"juan@example.com\",\n  \"password\": \"12345678\",\n  \"firstName\": \"Juan\",\n  \"lastName\": \"Dela Cruz\",\n  \"dob\": \"2004-05-20\",\n  \"course\": \"BSIT\",\n  \"major\": \"Business Analytics\",\n  \"address\": \"Manila\",\n  \"status\": \"Regular\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/user/register",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["user", "register"]
+        }
+      }
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"juan@example.com\",\n  \"password\": \"12345678\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/user/login",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["user", "login"]
+        }
+      }
+    },
+    {
+      "name": "Fetch My Student Profile using Token",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer PASTE_LOGIN_TOKEN_HERE"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/user/profile",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["user", "profile"]
+        }
+      }
+    },
+    {
+      "name": "Fetch Student Profile by Legacy ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/user/profile/PASTE_LEGACY_STUDENT_ID_HERE",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["user", "profile", "PASTE_LEGACY_STUDENT_ID_HERE"]
+        }
+      }
+    },
+    {
+      "name": "Adapter Layer - Fetch Profile Directly",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/user/profile/PASTE_LEGACY_STUDENT_ID_HERE",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["user", "profile", "PASTE_LEGACY_STUDENT_ID_HERE"]
+        }
+      }
+    }
+  ]
+}
